@@ -1,0 +1,79 @@
+header{
+    background-color: var(--purple);
+    color: var(--white);
+    height: 48px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.new-location-form{
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 12px;
+
+        .input-row{
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+
+            >*:not(img){
+                flex: 1;
+                color: var(--dark-gray);
+                min-width: 220px;
+            }
+
+            label{
+                min-width: fit-content;
+            }
+        }
+    }
+}
+
+footer{
+    display: flex;
+    height: 56px;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 12px;
+}
+
+.upload-area {
+    background-color: var(--light-gray);
+    min-height: 60px;
+    max-height: 1200px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    .upload-header{
+        background-color: var(--purple);
+        color: var(--white);
+        border-radius: 4px 4px 0 0;
+        text-align: center;
+        padding: 8px;
+    }
+
+    .upload-body{
+        display: flex;
+        justify-content: center;
+        padding: 12px;
+        img{
+            height: 40px;
+        }
+    }
+  
+    &:hover {
+        opacity: 0.9;
+    }
+  
+  }
+
+.uploaded-logo{
+    cursor: pointer;
+    flex: none !important;
+    max-height: 32px;
+}

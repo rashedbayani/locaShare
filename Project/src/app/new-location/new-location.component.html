@@ -1,0 +1,40 @@
+<div class="container">
+    <header>
+        Share Location
+    </header>
+    <div class="new-location-form">
+        <form [formGroup]="locationForm">
+            <div class="input-row">
+                <label for="name">Location Name:</label>
+                <input type="text" id="name" formControlName="name">
+            </div>
+            <div class="input-row">
+                <label for="map">Location On Map:</label>
+                <input type="text" id="map" formControlName="location">
+            </div>
+            <div class="input-row">
+                <label for="type">Location Type:</label>
+                <select formControlName="type">
+                    <option *ngFor="let item of locationTypes" [value]="item">{{item}}</option>
+                </select>
+            </div>
+            <div class="input-row">
+                <label for="logo">Logo:</label>
+                <input hidden type="file" id="logo" #fileInput formControlName="logo" (change)="uploadFiles($event)" accept="image/png, image/gif, image/jpeg">
+                <div *ngIf="!uploadedLogo" class="upload-area" (click)="fileInput.click()">
+                    <div class="upload-header">
+                        UPLOAD LOGO
+                    </div>
+                    <div class="upload-body">
+                        <img src="assets/icons/upload.png" alt="">
+                    </div>
+                </div>
+                <img *ngIf="uploadedLogo" (click)="fileInput.click()" [src]="uploadedLogo" class="uploaded-logo">
+            </div>
+        </form>
+    </div>
+    <footer>
+        <button class="primary" (click)="saveNewLocation()" [disabled]="locationForm.invalid || !validLogo">Save</button>
+        <button class="secondary" (click)="cancel()">Cancel</button>
+    </footer>
+</div>
